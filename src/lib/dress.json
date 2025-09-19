@@ -12,5 +12,123 @@
     "details": "",
     "specialFeatures": "",
     "isHidden": true
+  },
+  {
+    "id": 388611,
+    "name": "Fancy Dress",
+    "collection": "2",
+    "images": [
+      "/dress_img/test_img_card_2.jpg",
+      "/dress_img/test_img_card_3.jpg",
+      "/dress_img/test_img_card_2.jpg",
+      "/dress_img/test_img_card_3.jpg",
+      "/dress_img/test_img_card_2.jpg",
+      "/dress_img/test_img_card_3.jpg",
+      "/dress_img/test_img_card.jpg"
+    ],
+    "fabric": "3",
+    "color": "4",
+    "silhouette": "5",
+    "neckline": "6",
+    "sleeves": "7",
+    "details": "3",
+    "specialFeatures": "2",
+    "isHidden": false
+  },
+  {
+    "id": 388621,
+    "name": "1",
+    "collection": "2",
+    "images": [
+      "/dress_img/test_img_card_2.jpg"
+    ],
+    "fabric": "3",
+    "color": "4",
+    "silhouette": "5",
+    "neckline": "6",
+    "sleeves": "7",
+    "details": "8",
+    "specialFeatures": "9",
+    "isHidden": false
+  },
+  {
+    "id": 383311,
+    "name": "1",
+    "collection": "2",
+    "images": [
+      "/dress_img/test_img_card_2.jpg"
+    ],
+    "fabric": "3",
+    "color": "4",
+    "silhouette": "5",
+    "neckline": "6",
+    "sleeves": "7",
+    "details": "8",
+    "specialFeatures": "9",
+    "isHidden": false
+  },
+  {
+    "id": 388411,
+    "name": "1",
+    "collection": "2",
+    "images": [
+      "/dress_img/test_img_card_2.jpg"
+    ],
+    "fabric": "3",
+    "color": "4",
+    "silhouette": "5",
+    "neckline": "6",
+    "sleeves": "7",
+    "details": "8",
+    "specialFeatures": "9",
+    "isHidden": false
+  },
+  {
+    "id": 388511,
+    "name": "1",
+    "collection": "2",
+    "images": [
+      "/dress_img/test_img_card_2.jpg"
+    ],
+    "fabric": "3",
+    "color": "4",
+    "silhouette": "5",
+    "neckline": "6",
+    "sleeves": "7",
+    "details": "8",
+    "specialFeatures": "9",
+    "isHidden": true
+  },
+  {
+    "id": 388811,
+    "name": "1",
+    "collection": "2",
+    "images": [
+      "/dress_img/test_img_card_2.jpg"
+    ],
+    "fabric": "3",
+    "color": "4",
+    "silhouette": "5",
+    "neckline": "6",
+    "sleeves": "7",
+    "details": "8",
+    "specialFeatures": "9",
+    "isHidden": false
+  },
+  {
+    "id": 388619,
+    "name": "1",
+    "collection": "2",
+    "images": [
+      "/dress_img/test_img_card_2.jpg"
+    ],
+    "fabric": "3",
+    "color": "4",
+    "silhouette": "5",
+    "neckline": "6",
+    "sleeves": "7",
+    "details": "8",
+    "specialFeatures": "9",
+    "isHidden": true
   }
 ]

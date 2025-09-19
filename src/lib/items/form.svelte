@@ -1,4 +1,4 @@
-<div class="flex flex-col justify-between w-full mx-auto h-[80vh]">
+<div class="flex flex-col justify-between w-full mx-auto h-full">
   <form class="space-y-4" action="https://formsubmit.co/giothysham@gmail.com" method="POST">
     <label class="label">
       <span class="label-text">First Name</span>

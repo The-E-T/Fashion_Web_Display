@@ -17,11 +17,11 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
-<div class="bg-surface-50 dark:bg-surface-800">
-	<div class="grid grid-cols-3 items-center md:justify-between w-full px-3">
+<div class="bg-surface-50 dark:bg-surface-800 min-h-screen flex flex-col">
+	<div class="grid grid-cols-[1fr_2fr_1fr] items-center md:justify-between w-full">
 		<div class="flex align-middle"></div> <!-- replacement for menu button below -->
 		<!-- <button onclick={toggleMenu} class="flex align-middle"><span class="material-symbols-outlined px-3">menu</span>Menu</button>  
-		  <!-- {#if isMenuOpen}
+		   {#if isMenuOpen}
 			<div
 			role="button"
 			tabindex="0"
@@ -32,7 +32,7 @@
 			></div>
 		{/if} -->
 
-		<a href="/" class="flex text-4xl py-4 justify-center">Lara Nassif</a> 
+		<a href="/" class="flex lg:text-4xl md:text-4xl text-2xl py-4 justify-center w-full">Lara Nassif</a>
 		<nav class="fixed top-0 left-0 h-full w-72 max-w-[80vw] bg-surface-100 dark:bg-surface-800 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out {isMenuOpen ? 'translate-x-0' : '-translate-x-full'}" aria-labelledby="menu-heading">
 		<div class="flex flex-col h-full">
 			<!-- Menu Header -->
@@ -44,7 +44,7 @@
 			</div>
 
 			<!-- Navigation Links -->
-			<div class="flex-grow p-4 space-y-2">
+			<!-- <div class="flex-grow p-4 space-y-2">
 				<a href="/about" onclick={closeMenu} class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary-500/10 hover:text-primary-500 transition-colors">
 					<span class="material-symbols-outlined">person</span>
 					About Me
@@ -63,16 +63,32 @@
 				</a>
 			</div>
 
-				<!-- Menu Footer -->
+
 			<div class="p-4 border-t border-surface-200 dark:border-surface-700">
 				<p class="text-xs text-surface-500 dark:text-surface-400 text-center">&copy; {new Date().getFullYear()} Lara Nassif</p>
-			</div>
+			</div> -->
 		</div>
 		</nav>
-		<button type="button" class="btn flex align-middle justify-end"><a href="/gallery">Explore</a><span class="material-symbols-outlined px-3"><a href="/gallery">search</a></span></button>
+		<div class="flex align-middle justify-end">
+			<button type="button" class="btn flex align-middle justify-end items-end py-3"><a href="/gallery" class="hidden sm:inline justify-center">Explore</a><span class="material-symbols-outlined px-3"><a href="/gallery">search</a></span></button>
+		</div>
 	</div>
 	<hr class="hr w-full border-t-2 border-surface-800 dark:border-surface-50 overflow-hidden" />
-	<div class="px-[5vw]">
+	<div class="px-[5vw] flex-grow">
 		{@render children()}
 	</div>
+	<!-- TODO: Make footer of website -->
+	 <!-- TODO: Add social media to footer -->
+	<footer class="bg-surface-100 dark:bg-surface-800 text-surface-700 dark:text-surface-200 text-sm py-6">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
+		<div class="text-center sm:text-left">
+			&copy; {new Date().getFullYear()} Lara Nassif. All rights reserved.
+		</div>
+		<div class="flex gap-4 text-sm">
+			<a href="/about" class="hover:underline">About</a>
+			<a href="/contact" class="hover:underline">Contact</a>
+			<a href="/privacy" class="hover:underline">Privacy</a>
+		</div>
+		</div>
+	</footer>
 </div>

@@ -16,7 +16,7 @@
   <div class="text-center items-center justify-center space-y-14">
     <div class="text-center items-center justify-center space-y-4">
       <h1 class="text-4xl font-bold">Login with Magic Link</h1>
-      <input type="email" class="p-2 w-sm border dark:border-surface-50 border-surface-900" bind:value={email} placeholder="Your email" />
+      <input type="email" class="p-2 w-sm max-w-[95vw] border dark:border-surface-50 border-surface-900" bind:value={email} placeholder="Your email" />
     </div>
     <button type="button" class="btn border dark:border-surface-50 border-surface-900 btn-lg" on:click={sendLink}>Send Magic Link</button>
   </div>

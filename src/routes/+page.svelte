@@ -23,21 +23,28 @@
   let cards = Dress; // Use the actual array of card data
 
 
-    function handleScroll() {
-    // GUARD: Only access window/document if it exists (i.e., on the client-side)
+  function handleScroll() {
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-      const scrollPosition = window.scrollY + window.innerHeight / 2; // Check middle of viewport
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const section of sections) {
-        const el = document.getElementById(section.id); // document.getElementById also needs guarding
+        const el = document.getElementById(section.id);
         if (el) {
           if (scrollPosition >= el.offsetTop && scrollPosition < el.offsetTop + el.offsetHeight) {
             activeSection = section.id;
-            return; // Exit once the active section is found
+
+            // Scroll the active button into view
+            const button = document.getElementById(section.buttonId);
+            if (button) {
+              button.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+
+            return;
           }
         }
       }
-      activeSection = null; // No section is currently active
+
+      activeSection = null;
     }
   }
 
@@ -77,48 +84,56 @@ function scrollToSection(id: string) {
 
 
  <nav class="bg-surface-50 dark:bg-surface-800 flex flex-col items-center w-full top-0 sticky z-10">
-    <div class="w-full">
-      <div class="btn-group flex flex-row items-center justify-center gap-20">
-        <button class={`btn-base preset-tonal-surface bg-surface-50 dark:bg-surface-800 transition-all duration-250 ease-in-out text-lg
+  <div class="w-full overflow-x-auto scrollbar-hide">
+    <div class="flex flex-row items-center justify-start lg:justify-center whitespace-nowrap gap-4 sm:gap-20 sm:px-2 md:px-10 py-2">
+      <button
+        class={`btn-base preset-tonal-surface bg-surface-50 dark:bg-surface-800 transition-all duration-250 ease-in-out text-lg
           ${activeSection === 'Section_Lara_Nassif'
             ? 'border-b text-gray-950 dark:!text-gray-50'
             : 'text-gray-400 dark:text-gray-600'}`}
-          onclick={() => scrollToSection('Section_Lara_Nassif')}
-          id="button_nav_Lara_Nassif">
-            Lara Nassif
-        </button>
-        <button class={`btn-base preset-tonal-surface bg-surface-50 dark:bg-surface-800 transition-all duration-250 ease-in-out text-lg
+        onclick={() => scrollToSection('Section_Lara_Nassif')}
+        id="button_nav_Lara_Nassif">
+        Lara Nassif
+      </button>
+      
+      <button
+        class={`btn-base preset-tonal-surface bg-surface-50 dark:bg-surface-800 transition-all duration-250 ease-in-out text-lg
           ${activeSection === 'section2'
             ? 'border-b text-gray-950 dark:!text-gray-50'
             : 'text-gray-400 dark:text-gray-600'}`}
-          onclick={() => scrollToSection('section2')}
-          id="button2">
-            Collections
-        </button>
-        <button class={`btn-base preset-tonal-surface bg-surface-50 dark:bg-surface-800 transition-all duration-250 ease-in-out text-lg
+        onclick={() => scrollToSection('section2')}
+        id="button2">
+        Collections
+      </button>
+
+      <button
+        class={`btn-base preset-tonal-surface bg-surface-50 dark:bg-surface-800 transition-all duration-250 ease-in-out text-lg
           ${activeSection === 'section3'
             ? 'border-b text-gray-950 dark:!text-gray-50'
-            : 'text-gray-400 dark:text-gray-600'}`}          
-            onclick={() => scrollToSection('section3')}
-            id="button3">
-            Spotlight
-        </button>
-        <button class={`btn-base preset-tonal-surface bg-surface-50 dark:bg-surface-800 transition-all duration-250 ease-in-out text-lg
+            : 'text-gray-400 dark:text-gray-600'}`}
+        onclick={() => scrollToSection('section3')}
+        id="button3">
+        Spotlight
+      </button>
+
+      <button
+        class={`btn-base preset-tonal-surface bg-surface-50 dark:bg-surface-800 transition-all duration-250 ease-in-out text-lg
           ${activeSection === 'section4'
             ? 'border-b text-gray-950 dark:!text-gray-50'
             : 'text-gray-400 dark:text-gray-600'}`}
-          onclick={() => scrollToSection('section4')}
-          id="button4">
-            Appointments
-        </button>
-      </div>
-    </div>  
-  </nav>
+        onclick={() => scrollToSection('section4')}
+        id="button4">
+        Appointments
+      </button>
+    </div>
+  </div>
+</nav>
+
 
 <div>
   <section id="Section_Lara_Nassif" class="flex-col items-center justify-center py-[5vh]">
     <div class="flex items-center justify-center pb-[5vh]">
-      <div class="flex flex-row items-stretch justify-between gap-20 max-w-6xl mx-auto w-full ">
+      <div class=" flex lg:flex-row flex-col items-stretch justify-between gap-20 max-w-6xl mx-auto w-full">
         <img src="home_page_img/sewing.jpg" alt="Lara Sewing" class="h-[75vh] object-cover" />
         <div class="bg-surface-600 flex items-center w-full">
           <p class="text-lg text-justify w-full px-4">{filler_txt.content}</p>
@@ -158,21 +173,28 @@ function scrollToSection(id: string) {
     Section 3 Content
   </section>
 
-  <section id="section4" class="flex items-center justify-center h-[95vh]">
-    <div class="flex flex-row justify-between w-full">
-      <div class="flex items-center justify-center w-full max-w-xl"> 
-          <Forms /> 
-      </div>
-      <div class="flex h-[80vh] w-[50vw]">
-          <iframe
+  <section id="section4" class="w-full py-12">
+    <div class="flex flex-col md:flex-row items-stretch justify-between gap-6 max-w-7xl mx-auto px-4">
+      
+      <!-- Map Section -->
+      <div class="w-full md:w-1/2 h-[60vh] md:h-auto">
+        <iframe
           class="w-full h-full border-0 rounded-lg"
           src="https://www.google.com/maps?q=34.29877184193318,35.82028686731903&z=15&output=embed&hl=en"
           title="Google Maps location"
           allowfullscreen
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+        ></iframe>
       </div>
+
+      <!-- Form Section -->
+      <div class="w-full md:w-1/2 flex items-center justify-center">
+        <div class="w-full max-w-xl">
+          <Forms />
+        </div>
+      </div>
+
     </div>
   </section>
 </div>
