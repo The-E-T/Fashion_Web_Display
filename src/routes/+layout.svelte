@@ -79,7 +79,7 @@
 	</div>
 	<!-- TODO: Make footer of website -->
 	 <!-- TODO: Add social media to footer -->
-	<footer class="bg-surface-100 dark:bg-surface-800 text-surface-700 dark:text-surface-200 text-sm py-6">
+	<footer class="bg-surface-50 dark:bg-surface-800 text-surface-700 dark:text-surface-200 text-sm py-6">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
 		<div class="text-center sm:text-left">
 			&copy; {new Date().getFullYear()} Lara Nassif. All rights reserved.

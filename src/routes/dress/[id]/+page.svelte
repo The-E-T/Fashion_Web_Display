@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition';
   import { FileUpload } from '@skeletonlabs/skeleton-svelte';
   import IconDropzone from '@lucide/svelte/icons/image-plus';
   import type { Dress } from '$lib/dressTemplate';
+	import { onMount } from 'svelte';
 
   const { data } = $props<{
     data: {
@@ -18,6 +18,15 @@
 
   let newImageFiles: File[] = $state([]);
 
+  let isFullscreen = $state(false);
+
+  $effect(() => {
+    if (isFullscreen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+  });
 
   const deleteCurrentImage = () => {
     if (dress.images.length === 0) return;
@@ -108,6 +117,20 @@
     }
   }
 
+  function closeImage() {
+		isFullscreen = false;
+	}
+
+  function handleKey(event: KeyboardEvent) {
+		if (event.key === 'Escape') closeImage();
+	}
+
+	// Optional: listen for Escape key
+	onMount(() => {
+		window.addEventListener('keydown', handleKey);
+		return () => window.removeEventListener('keydown', handleKey);
+	});
+
 </script>
 
 <div class="min-h-[85vh] flex items-center justify-center px-4 py-8">
@@ -155,49 +178,92 @@
     </div>
 
 
-      <!-- Main Image -->
-      <div class="relative mx-auto flex flex-col items-center gap-4 w-full max-w-md">
-        <div class="relative aspect-[9/16] w-full rounded-lg shadow-lg dark:shadow-surface-900 shadow-surface-400 overflow-hidden">
-          {#key currentIndex}
-            <img
-              src={dress.images[currentIndex]}
-              alt="{dress.name}"
-              class="absolute inset-0 w-full h-full object-cover"
-              transition:fade={{ duration: 300 }}
-            />
-          {/key}
+    <!-- Main Image -->
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <div class="relative mx-auto flex flex-col items-center gap-4 w-full max-w-md">
+      <div class="relative aspect-[9/16] w-full rounded-lg shadow-lg dark:shadow-surface-900 shadow-surface-400 overflow-hidden">
+        <!-- Clickable Main Image -->
+        {#key currentIndex}
+          <img
+            src={dress.images[currentIndex]}
+            alt="{dress.name}"
+            class="absolute inset-0 w-full h-full object-cover cursor-pointer"
+            onclick={() => isFullscreen = true}
+          />
+        {/key}
 
-          <!-- Arrows -->
+        <!-- Arrows -->
+        <button
+          class="btn absolute top-1/2 left-0 transform -translate-y-1/2 p-2 z-20 text-2xl bg-surface-400 hover:bg-white mx-2 transition rounded-full"
+          onclick={prevImage}
+        >
+          ‹
+        </button>
+        <button
+          class="btn absolute top-1/2 right-0 transform -translate-y-1/2 p-2 z-20 text-2xl bg-surface-400 hover:bg-white mx-2 transition rounded-full"
+          onclick={nextImage}
+        >
+          ›
+        </button>
+      </div>
+
+      <!-- Fullscreen Overlay -->
+      {#if isFullscreen}
+        
+        <div
+          class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center"
+          onclick={() => isFullscreen = false}
+        >
+          <!-- Image -->
+          <img
+            src={dress.images[currentIndex]}
+            alt="Fullscreen"
+            class="max-h-[90vh] max-w-[90vw] object-contain rounded z-60"
+            onclick={(e) => e.stopPropagation()}
+          />
+
+          <!-- Close Button -->
           <button
-            class="btn absolute top-1/2 left-0 transform -translate-y-1/2 p-2 z-10 text-2xl bg-surface-400 hover:bg-white mx-2 transition rounded-full"
-            onclick={prevImage}
+            class="absolute top-4 right-4 text-white text-3xl z-70"
+            onclick={(e) => { e.stopPropagation(); isFullscreen = false; }}
+            aria-label="Close fullscreen"
+          >
+            &times;
+          </button>
+
+          <!-- Navigation Arrows -->
+            <button
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 z-70 p-4 text-white text-4xl"
+            onclick={(e) => { e.stopPropagation(); prevImage(); }}
           >
             ‹
           </button>
           <button
-            class="btn absolute top-1/2 right-0 transform -translate-y-1/2 p-2 z-10 text-2xl bg-surface-400 hover:bg-white mx-2 transition rounded-full"
-            onclick={nextImage}
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 z-70 p-4 text-white text-4xl"
+            onclick={(e) => { e.stopPropagation(); nextImage(); }}
           >
             ›
           </button>
         </div>
+      {/if}
 
-        <!-- Dots -->
-        <div class="flex justify-center gap-2 mt-2">
-          {#each dress.images as _, i}
-            <!-- svelte-ignore a11y_click_events_have_key_events -->
-            <!-- svelte-ignore a11y_no_static_element_interactions -->
-            <div
-              class="w-3 h-3 rounded-full cursor-pointer transition-colors duration-200"
-              class:bg-surface-800={i === currentIndex}
-              class:dark:bg-surface-50={i === currentIndex}
-              class:bg-gray-400={i !== currentIndex}
-              class:dark:bg-gray-600={i !== currentIndex}
-              onclick={() => selectImage(i)}
-            ></div>
-          {/each}
-        </div>
+      <!-- Dots -->
+      <div class="flex justify-center gap-2 mt-2">
+        {#each dress.images as _, i}
+          <div
+            class="w-3 h-3 rounded-full cursor-pointer transition-colors duration-200"
+            class:bg-surface-800={i === currentIndex}
+            class:dark:bg-surface-50={i === currentIndex}
+            class:bg-gray-400={i !== currentIndex}
+            class:dark:bg-gray-600={i !== currentIndex}
+            onclick={() => selectImage(i)}
+          ></div>
+        {/each}
       </div>
+    </div>
+
 
       <!-- Dress Details -->
       <div class="space-y-6 self-start justify-baseline w-full">
