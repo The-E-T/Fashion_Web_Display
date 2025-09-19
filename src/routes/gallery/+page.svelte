@@ -22,8 +22,7 @@
       <button
         type="submit"
         name="createNew"
-        class="w-full h-full flex flex-col items-center justify-center text-center gap-2 border rounded aspect-[9/16]"
-      >
+        class="w-full h-full flex flex-col items-center justify-center text-center gap-2 border rounded aspect-[9/16]">
         <Plus class="w-10 h-10 " /><span>Add New</span>
       </button>
     </form>

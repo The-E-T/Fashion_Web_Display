@@ -140,12 +140,10 @@
       <div class="flex flex-col items-center justify-center">
         <input
           class="text-4xl font-semibold pb-1 border border-gray-300 rounded px-2 text-center"
-          bind:value={dress.name}
-        />
+          bind:value={dress.name}/>
         <input
           class="text-xl dark:text-surface-400 text-surface-800 border border-gray-300 rounded px-2 text-center mt-2"
-          bind:value={dress.collection}
-        />
+          bind:value={dress.collection}/>
       </div>
     {:else}
       <h1 class="text-4xl font-semibold pb-1">{dress.name}</h1>
@@ -164,14 +162,11 @@
           <!-- svelte-ignore a11y_no_static_element_interactions -->
           <div
             class="w-full aspect-[9/16] relative rounded-md overflow-hidden cursor-pointer transition-transform duration-200 transform origin-center
-              {i === currentIndex ? 'scale-110 z-10' : 'scale-100'}"
-            onclick={() => selectImage(i)}
-          >
+              {i === currentIndex ? 'scale-110 z-10' : 'scale-100'}" onclick={() => selectImage(i)}>
             <img
               src={img}
               alt="Thumbnail"
-              class="absolute inset-0 w-full h-full object-cover"
-            />
+              class="absolute inset-0 w-full h-full object-cover"/>
           </div>
         {/each}
       </div>
@@ -190,32 +185,26 @@
             src={dress.images[currentIndex]}
             alt="{dress.name}"
             class="absolute inset-0 w-full h-full object-cover cursor-pointer"
-            onclick={() => isFullscreen = true}
-          />
+            onclick={() => isFullscreen = true}/>
         {/key}
 
         <!-- Arrows -->
         <button
           class="btn absolute top-1/2 left-0 transform -translate-y-1/2 p-2 z-20 text-2xl bg-surface-400 hover:bg-white mx-2 transition rounded-full"
-          onclick={prevImage}
-        >
+          onclick={prevImage}>
           ‹
         </button>
         <button
           class="btn absolute top-1/2 right-0 transform -translate-y-1/2 p-2 z-20 text-2xl bg-surface-400 hover:bg-white mx-2 transition rounded-full"
-          onclick={nextImage}
-        >
+          onclick={nextImage}>
           ›
         </button>
       </div>
 
       <!-- Fullscreen Overlay -->
       {#if isFullscreen}
-        
         <div
-          class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center"
-          onclick={() => isFullscreen = false}
-        >
+          class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center" onclick={() => isFullscreen = false}>
           <!-- Image -->
           <img
             src={dress.images[currentIndex]}
@@ -228,22 +217,18 @@
           <button
             class="absolute top-4 right-4 text-white text-3xl z-70"
             onclick={(e) => { e.stopPropagation(); isFullscreen = false; }}
-            aria-label="Close fullscreen"
-          >
+            aria-label="Close fullscreen">
             &times;
           </button>
 
           <!-- Navigation Arrows -->
             <button
             class="absolute left-4 top-1/2 transform -translate-y-1/2 z-70 p-4 text-white text-4xl"
-            onclick={(e) => { e.stopPropagation(); prevImage(); }}
-          >
+            onclick={(e) => { e.stopPropagation(); prevImage(); }}>
             ‹
           </button>
-          <button
-            class="absolute right-4 top-1/2 transform -translate-y-1/2 z-70 p-4 text-white text-4xl"
-            onclick={(e) => { e.stopPropagation(); nextImage(); }}
-          >
+          <button class="absolute right-4 top-1/2 transform -translate-y-1/2 z-70 p-4 text-white text-4xl" 
+            onclick={(e) => { e.stopPropagation(); nextImage(); }}>
             ›
           </button>
         </div>
@@ -273,10 +258,7 @@
             <li>
               <strong>Fabric:</strong>
               {#if editing}
-                <input
-                  class="ml-2 border border-gray-300 rounded px-2"
-                  bind:value={dress.fabric}
-                />
+                <input class="ml-2 border border-gray-300 rounded px-2" bind:value={dress.fabric}/>
               {:else}
                 {dress.fabric}
               {/if}
@@ -284,10 +266,7 @@
             <li>
               <strong>Color:</strong>
               {#if editing}
-                <input
-                  class="ml-2 border border-gray-300 rounded px-2"
-                  bind:value={dress.color}
-                />
+                <input class="ml-2 border border-gray-300 rounded px-2" bind:value={dress.color}/>
               {:else}
                 {dress.color}
               {/if}
@@ -295,10 +274,7 @@
             <li>
               <strong>Silhouette:</strong>
               {#if editing}
-                <input
-                  class="ml-2 border border-gray-300 rounded px-2"
-                  bind:value={dress.silhouette}
-                />
+                <input class="ml-2 border border-gray-300 rounded px-2" bind:value={dress.silhouette}/>
               {:else}
                 {dress.silhouette}
               {/if}
@@ -306,10 +282,7 @@
             <li>
               <strong>Neckline:</strong>
               {#if editing}
-                <input
-                  class="ml-2 border border-gray-300 rounded px-2"
-                  bind:value={dress.neckline}
-                />
+                <input class="ml-2 border border-gray-300 rounded px-2" bind:value={dress.neckline}/>
               {:else}
                 {dress.neckline}
               {/if}
@@ -317,10 +290,7 @@
             <li>
               <strong>Sleeves:</strong>
               {#if editing}
-                <input
-                  class="ml-2 border border-gray-300 rounded px-2"
-                  bind:value={dress.sleeves}
-                />
+                <input class="ml-2 border border-gray-300 rounded px-2"  bind:value={dress.sleeves}/>
               {:else}
                 {dress.sleeves}
               {/if}
@@ -328,10 +298,7 @@
             <li>
               <strong>Details:</strong>
               {#if editing}
-                <input
-                  class="ml-2 border dark:border-surface-300 border-surface-600 rounded px-2"
-                  bind:value={dress.details}
-                />
+                <input class="ml-2 border dark:border-surface-300 border-surface-600 rounded px-2" bind:value={dress.details}/>
               {:else}
                 {dress.details}
               {/if}
@@ -339,10 +306,7 @@
             <li>
               <strong>Special Features:</strong>
               {#if editing}
-                <input
-                  class="ml-2 border border-gray-300 rounded px-2"
-                  bind:value={dress.specialFeatures}
-                />
+                <input class="ml-2 border border-gray-300 rounded px-2" bind:value={dress.specialFeatures}/>
               {:else}
                 {dress.specialFeatures}
               {/if}
