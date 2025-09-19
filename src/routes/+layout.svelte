@@ -3,9 +3,9 @@
 
 	let isMenuOpen = $state(false);
 
-	function toggleMenu() {
-		isMenuOpen = !isMenuOpen;
-	}
+	// function toggleMenu() {
+	// 	isMenuOpen = !isMenuOpen;
+	// }
 
 	function closeMenu() {
 		isMenuOpen = false;
