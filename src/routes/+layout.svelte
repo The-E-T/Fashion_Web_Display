@@ -77,8 +77,8 @@
 	<div class="px-[5vw] flex-grow">
 		{@render children()}
 	</div>
-	<!-- TODO: Make footer of website -->
 	 <!-- TODO: Add social media to footer -->
+	<hr class="border-1 rounded-sm bg-surface-900 dark:bg-surface-50 mx-auto w-full" />
 	<footer class="bg-surface-50 dark:bg-surface-800 text-surface-700 dark:text-surface-200 text-sm py-6">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
 		<div class="text-center sm:text-left">

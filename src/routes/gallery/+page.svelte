@@ -5,6 +5,8 @@
   export let data: { dresses: Dress[]; isAdmin: boolean };
 </script>
 
+<!-- TODO: Add filter/search bar -->
+
 <section id="normal-dresses" class="justify-items-center text-3xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-[5vh]">
   {#each data.dresses.filter(d => !d.isHidden) as dress (dress.id)}
     <div>

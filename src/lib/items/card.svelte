@@ -24,11 +24,17 @@
   <!-- Footer Overlay (appears on hover) -->
   <div
     class="absolute bottom-0 left-0 right-0 
-           flex items-center justify-center p-2 opacity-0 translate-y-4 
-           group-hover:opacity-100 group-hover:translate-y-0 
-           transition-all duration-300 ease-in-out transform opacity pointer-events-none
-           group-hover:pointer-events-auto"
+          flex items-center justify-center p-2 opacity-0 translate-y-4 
+          group-hover:opacity-100 group-hover:translate-y-0 
+          transition-all duration-300 ease-in-out transform opacity pointer-events-none
+          group-hover:pointer-events-auto"
   >
-    <button type="button" class="btn preset-tonal-surface">{title}</button>
+    <button 
+      type="button" 
+      class="btn preset-tonal-surface whitespace-normal text-center max-w-xs w-full"
+    >
+      {title}
+    </button>
   </div>
+
 </a>

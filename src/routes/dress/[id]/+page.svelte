@@ -139,15 +139,15 @@
     {#if editing}
       <div class="flex flex-col items-center justify-center">
         <input
-          class="text-4xl font-semibold pb-1 border border-gray-300 rounded px-2 text-center"
+          class="text-4xl font-semibold pb-1 border border-gray-300 rounded px-2 text-center w-[70vw]"
           bind:value={dress.name}/>
-        <input
+        <!-- <input INFO: Can be added later if collections are a thing
           class="text-xl dark:text-surface-400 text-surface-800 border border-gray-300 rounded px-2 text-center mt-2"
-          bind:value={dress.collection}/>
+          bind:value={dress.collection}/> -->
       </div>
     {:else}
       <h1 class="text-4xl font-semibold pb-1">{dress.name}</h1>
-      <p class="text-xl dark:text-surface-400 text-surface-800">{dress.collection}</p>
+      <!-- <p class="text-xl dark:text-surface-400 text-surface-800">{dress.collection}</p> -->
     {/if}
   </header>
 
@@ -156,7 +156,7 @@
 
       <div class="hidden xl:flex flex-col max-h-[100vh] overflow-y-scroll no-scrollbar">
       <!-- Thumbnails -->
-      <div class="flex flex-col gap-4 w-24 items-center no-scrollbar justify-start mx-auto mt-[2vh]">
+      <div class="flex flex-col gap-4 w-24 items-center no-scrollbar justify-start mx-auto mt-[2vh] min-h-[90vh]">
         {#each dress.images as img, i}
           <!-- svelte-ignore a11y_click_events_have_key_events -->
           <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -253,66 +253,12 @@
       <!-- Dress Details -->
       <div class="space-y-6 self-start justify-baseline w-full">
         <section>
-          <h2 class="text-2xl"><strong>Details</strong></h2>
-          <ul class="space-y-2 text-lg my-5">
-            <li>
-              <strong>Fabric:</strong>
-              {#if editing}
-                <input class="ml-2 border border-gray-300 rounded px-2" bind:value={dress.fabric}/>
-              {:else}
-                {dress.fabric}
-              {/if}
-            </li>
-            <li>
-              <strong>Color:</strong>
-              {#if editing}
-                <input class="ml-2 border border-gray-300 rounded px-2" bind:value={dress.color}/>
-              {:else}
-                {dress.color}
-              {/if}
-            </li>
-            <li>
-              <strong>Silhouette:</strong>
-              {#if editing}
-                <input class="ml-2 border border-gray-300 rounded px-2" bind:value={dress.silhouette}/>
-              {:else}
-                {dress.silhouette}
-              {/if}
-            </li>
-            <li>
-              <strong>Neckline:</strong>
-              {#if editing}
-                <input class="ml-2 border border-gray-300 rounded px-2" bind:value={dress.neckline}/>
-              {:else}
-                {dress.neckline}
-              {/if}
-            </li>
-            <li>
-              <strong>Sleeves:</strong>
-              {#if editing}
-                <input class="ml-2 border border-gray-300 rounded px-2"  bind:value={dress.sleeves}/>
-              {:else}
-                {dress.sleeves}
-              {/if}
-            </li>
-            <li>
-              <strong>Details:</strong>
-              {#if editing}
-                <input class="ml-2 border dark:border-surface-300 border-surface-600 rounded px-2" bind:value={dress.details}/>
-              {:else}
-                {dress.details}
-              {/if}
-            </li>
-            <li>
-              <strong>Special Features:</strong>
-              {#if editing}
-                <input class="ml-2 border border-gray-300 rounded px-2" bind:value={dress.specialFeatures}/>
-              {:else}
-                {dress.specialFeatures}
-              {/if}
-            </li>
-          </ul>
-
+          <h2 class="text-2xl mb-4"><strong>Description:</strong></h2>
+            {#if editing}
+              <textarea class="ml-2 border border-gray-300 rounded px-2 w-[25vw] h-[25vh]" bind:value={dress.description}></textarea>
+            {:else}
+              <p class="text-left">{dress.description}</p>  
+            {/if}
 
           {#if data.isAdmin}
             <div class="my-4 flex flex-col gap-4">

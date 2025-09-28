@@ -3,13 +3,7 @@ export type Dress = {
   name: string;
   collection: string;
   images: string[];
-  fabric: string;
-  color: string;
-  silhouette: string;
-  neckline: string;
-  sleeves: string;
-  details: string;
-  specialFeatures: string;
+  description: string;
   isHidden: boolean;
 };
 
@@ -18,12 +12,6 @@ export const dressTemplate: Dress = {
   name: "",
   collection: "",
   images: [],
-  fabric: "",
-  color: "",
-  silhouette: "",
-  neckline: "",
-  sleeves: "",
-  details: "",
-  specialFeatures: "",
+  description: "",
   isHidden: true
 };

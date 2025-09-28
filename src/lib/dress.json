@@ -4,131 +4,17 @@
     "name": "Buffer Dress, please don't remove",
     "collection": "Avoiding Errors, ignore",
     "images": [],
-    "fabric": "",
-    "color": "",
-    "silhouette": "",
-    "neckline": "",
-    "sleeves": "",
-    "details": "",
-    "specialFeatures": "",
+    "description": "its a buffer/template",
     "isHidden": true
   },
   {
-    "id": 388611,
-    "name": "Fancy Dress",
-    "collection": "2",
+    "id": 96198,
+    "name": "Elegant Off-Shoulder White Gown with Sheer Sleeves",
+    "collection": "",
     "images": [
-      "/dress_img/test_img_card_2.jpg",
-      "/dress_img/test_img_card_3.jpg",
-      "/dress_img/test_img_card_2.jpg",
-      "/dress_img/test_img_card_3.jpg",
-      "/dress_img/test_img_card_2.jpg",
-      "/dress_img/test_img_card_3.jpg",
-      "/dress_img/test_img_card.jpg"
+      "/dress_img/1759085437937-test_img.jpg"
     ],
-    "fabric": "3",
-    "color": "4",
-    "silhouette": "5",
-    "neckline": "6",
-    "sleeves": "7",
-    "details": "3",
-    "specialFeatures": "2",
+    "description": "Sophisticated white gown featuring a draped off-shoulder neckline, sheer embellished sleeves, and a flattering side drape with a thigh-high slit. Perfect for engagements, civil weddings, or formal evening occasions.",
     "isHidden": false
-  },
-  {
-    "id": 388621,
-    "name": "1",
-    "collection": "2",
-    "images": [
-      "/dress_img/test_img_card_2.jpg"
-    ],
-    "fabric": "3",
-    "color": "4",
-    "silhouette": "5",
-    "neckline": "6",
-    "sleeves": "7",
-    "details": "8",
-    "specialFeatures": "9",
-    "isHidden": false
-  },
-  {
-    "id": 383311,
-    "name": "1",
-    "collection": "2",
-    "images": [
-      "/dress_img/test_img_card_2.jpg"
-    ],
-    "fabric": "3",
-    "color": "4",
-    "silhouette": "5",
-    "neckline": "6",
-    "sleeves": "7",
-    "details": "8",
-    "specialFeatures": "9",
-    "isHidden": false
-  },
-  {
-    "id": 388411,
-    "name": "1",
-    "collection": "2",
-    "images": [
-      "/dress_img/test_img_card_2.jpg"
-    ],
-    "fabric": "3",
-    "color": "4",
-    "silhouette": "5",
-    "neckline": "6",
-    "sleeves": "7",
-    "details": "8",
-    "specialFeatures": "9",
-    "isHidden": false
-  },
-  {
-    "id": 388511,
-    "name": "1",
-    "collection": "2",
-    "images": [
-      "/dress_img/test_img_card_2.jpg"
-    ],
-    "fabric": "3",
-    "color": "4",
-    "silhouette": "5",
-    "neckline": "6",
-    "sleeves": "7",
-    "details": "8",
-    "specialFeatures": "9",
-    "isHidden": true
-  },
-  {
-    "id": 388811,
-    "name": "1",
-    "collection": "2",
-    "images": [
-      "/dress_img/test_img_card_2.jpg"
-    ],
-    "fabric": "3",
-    "color": "4",
-    "silhouette": "5",
-    "neckline": "6",
-    "sleeves": "7",
-    "details": "8",
-    "specialFeatures": "9",
-    "isHidden": false
-  },
-  {
-    "id": 388619,
-    "name": "1",
-    "collection": "2",
-    "images": [
-      "/dress_img/test_img_card_2.jpg"
-    ],
-    "fabric": "3",
-    "color": "4",
-    "silhouette": "5",
-    "neckline": "6",
-    "sleeves": "7",
-    "details": "8",
-    "specialFeatures": "9",
-    "isHidden": true
   }
 ]

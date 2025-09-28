@@ -1,11 +1,8 @@
 <script lang='ts'>
   import filler_txt from '$lib/filler_text/2_p_filler_text.json';
-  import Forms from '$lib/items/form.svelte';
   import Card from '$lib/items/card.svelte';
   import Dress from '$lib/dress.json';
   import { onMount, onDestroy } from 'svelte';
-  import { linear } from 'svelte/easing';
-  import { slide } from 'svelte/transition';
   import { fly } from 'svelte/transition';
 
   let activeSection = $state<string | null>(null); // Stores the ID of the currently active section
@@ -15,8 +12,6 @@
     { id: 'Section_Lara_Nassif', buttonId: 'button_nav_Lara_Nassif' },
     { id: 'section2', buttonId: 'button2' },
     { id: 'section3', buttonId: 'button3' },
-    { id: 'section4', buttonId: 'button4' },
-    { id: 'section5', buttonId: 'button5' },
   ];
 
   let showAll = $state(false);
@@ -113,10 +108,10 @@ function scrollToSection(id: string) {
             : 'text-gray-400 dark:text-gray-600'}`}
         onclick={() => scrollToSection('section3')}
         id="button3">
-        Spotlight
+        Design a Dress
       </button>
 
-      <button
+      <!-- <button
         class={`btn-base preset-tonal-surface bg-surface-50 dark:bg-surface-800 transition-all duration-250 ease-in-out text-lg
           ${activeSection === 'section4'
             ? 'border-b text-gray-950 dark:!text-gray-50'
@@ -124,7 +119,7 @@ function scrollToSection(id: string) {
         onclick={() => scrollToSection('section4')}
         id="button4">
         Appointments
-      </button>
+      </button> -->
     </div>
   </div>
 </nav>
@@ -169,32 +164,23 @@ function scrollToSection(id: string) {
     </div>
   </section>
 
-  <section id="section3" class="h-[800px] flex items-center justify-center bg-yellow-200 dark:bg-yellow-700 text-3xl">
-    Section 3 Content
-  </section>
-
-  <section id="section4" class="w-full py-12">
-    <div class="flex flex-col md:flex-row items-stretch justify-between gap-6 max-w-7xl mx-auto px-4">
+  <section id="section3" class="grid grid-cols-1 xl:grid-cols-[3fr_1fr] gap-5 w-full justify-center mb-[5vh] border-2 p-5">
+    <img src="home_page_img/design_own_dress.jpg" class="w-full h-auto object-cover" alt="Design your own dress" />
+    
+    <div class="flex flex-col justify-between h-full">
+      <h2 class="text-center w-full text-2xl md:text-3xl pt-3 md:pt-5">Design Your Own Dress</h2>
       
-      <!-- Map Section -->
-      <div class="w-full md:w-1/2 h-[60vh] md:h-auto">
-        <iframe
-          class="w-full h-full border-0 rounded-lg"
-          src="https://www.google.com/maps?q=34.29877184193318,35.82028686731903&z=15&output=embed&hl=en"
-          title="Google Maps location"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+      <div class="flex-grow flex items-center py-4">
+        <p class="text-base md:text-md text-justify w-full">
+          Create your perfect dress with our made-to-measure service tailored just for you. 
+          Ditch one size that fits all, and start with a stunning silhouette and customize every detail: the top, skirt, sleeves, neckline, and yes, even pockets! 
+          Because your dream dress should fit like it was made just for you. Perfect fit, guaranteed.
+        </p>
       </div>
 
-      <!-- Form Section -->
-      <div class="w-full md:w-1/2 flex items-center justify-center">
-        <div class="w-full max-w-xl">
-          <Forms />
-        </div>
+      <div class="pt-3 md:pt-0 pb-3 md:pb-5">
+        <a href="/contact" ><button class="btn py-2 preset-outlined-surface-950-50 w-full">Create my Dress</button></a>
       </div>
-
     </div>
   </section>
 </div>
